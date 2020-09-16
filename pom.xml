@@ -21,6 +21,7 @@
         <module>transformer-common</module>
         <module>transformer-business</module>
         <module>transformer-ws</module>
+        <module>transformer-test</module>
     </modules>
 
     <properties>
@@ -30,19 +31,14 @@
         <junit.version>4.13</junit.version>
         <spring.version>5.2.3.RELEASE</spring.version>
         <javaee-api.version>8.0</javaee-api.version>
+        <commons-csv.version>1.4</commons-csv.version>
+        <httpclient.version>4.5.12</httpclient.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
             <!--+++++++++++++++++++++++++++++++Spring boot+++++++++++++++++++++++++++++++++++++++++++++-->
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-dependencies</artifactId>-->
-                <!--<version>${spring-boot.version}</version>-->
-                <!--<type>pom</type>-->
-                <!--<scope>provided</scope>-->
-            <!--</dependency>-->
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
@@ -56,6 +52,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web-services</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
@@ -100,8 +101,24 @@
                 <artifactId>transformer-business</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>com.aequilibrium</groupId>
+                <artifactId>transformer-ws</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
 
+            <!--+++++++++++++++++++++++++++++++util+++++++++++++++++++++++++++++++++++++++++++++-->
 
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>${commons-csv.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

@@ -1,4 +1,5 @@
+com/aequilibrium/transformer/api/model/Transformer.class
+com/aequilibrium/transformer/api/model/Desceptican.class
 com/aequilibrium/transformer/api/service/TransformerAPI.class
 com/aequilibrium/transformer/api/model/CreateTransformerRequest.class
 com/aequilibrium/transformer/api/model/CreateTransformerResponse.class
-com/aequilibrium/transformer/api/model/ITransformer.class

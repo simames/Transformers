@@ -1,13 +1,17 @@
 package com.aequilibrium.transformer.api.model;
 
 public class CreateTransformerRequest {
-    private ITransformer iTransformer;
+    private Transformer transformer;
 
 
-    public CreateTransformerRequest(ITransformer iTransformer) {
-        this.iTransformer = iTransformer;
+    public CreateTransformerRequest(Transformer iTransformer) {
+        this.transformer = iTransformer;
     }
 
     public CreateTransformerRequest() {
+    }
+
+    public Transformer getTransformer() {
+        return transformer;
     }
 }

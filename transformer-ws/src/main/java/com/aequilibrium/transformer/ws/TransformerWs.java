@@ -18,6 +18,6 @@ public class TransformerWs implements TransformerAPI {
 
     @Override
     public CreateTransformerResponse createTransformer(CreateTransformerRequest request) {
-        return logic.createTransformer();
+        return logic.createTransformer(request.getTransformer());
     }
 }
