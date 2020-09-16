@@ -23,6 +23,10 @@
             <groupId>com.aequilibrium</groupId>
             <artifactId>transformer-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.aequilibrium</groupId>
+            <artifactId>transformer-persistence</artifactId>
+        </dependency>
 
 
     </dependencies>
