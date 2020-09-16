@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 @SpringBootTest(classes = {TransformerRestTemplateFactory.class,TransformerSP.class})
 @ComponentScan("com.aequilibrium.transformer.*")
 public class transformerIntegrationTest
@@ -24,7 +22,7 @@ public class transformerIntegrationTest
         Desceptican desceptican = new Desceptican();
         desceptican.setId(1L);
         CreateTransformerResponse transformer = transformerAPI.createTransformer(new CreateTransformerRequest(desceptican));
-        
+
     }
 
 

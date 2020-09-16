@@ -1,5 +1,7 @@
 package com.aequilibrium.transformer.sp.config;
 
+import com.aequilibrium.transformer.api.TransformerError;
+import com.aequilibrium.transformer.api.TransformerFault;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -55,9 +57,9 @@ public class RestTemplateResponseErrorHandler
         }
 
         String s = new String(getResponseBody(httpResponse), charset);
-//        if (s.length() == 0) return;
-//        IdmFault bf = mapper.readValue(s, IdmFault.class);
-//        throw new IdmError(bf.getCode(),bf.getParams());
+        if (s.length() == 0) return;
+        TransformerFault bf = mapper.readValue(s, TransformerFault.class);
+        throw new TransformerError(bf.getCode(),bf.getParams());
     }
 
 }
