@@ -11,5 +11,21 @@
 
     <artifactId>business</artifactId>
 
+    <dependencies>
+        <!--+++++++++++++++++++++++++++++++ Spring boot++++++++++++++++++++++++++++-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!--+++++++++++++++++++++++++++++++ Own modules ++++++++++++++++++++++++++++-->
+        <dependency>
+            <groupId>com.aequilibrium</groupId>
+            <artifactId>api</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
 
 </project>

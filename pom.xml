@@ -28,20 +28,26 @@
         <rest-assured.version>2.9.0</rest-assured.version>
         <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
         <junit.version>4.13</junit.version>
+        <spring.version>5.2.3.RELEASE</spring.version>
+        <javaee-api.version>8.0</javaee-api.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
             <!--+++++++++++++++++++++++++++++++Spring boot+++++++++++++++++++++++++++++++++++++++++++++-->
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-dependencies</artifactId>-->
+                <!--<version>${spring-boot.version}</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>provided</scope>-->
+            <!--</dependency>-->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>provided</scope>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${javaee-api.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
@@ -56,7 +62,22 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
                 <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!--+++++++++++++++++++++++++++++++Test+++++++++++++++++++++++++++++++++++++++++++++-->
+
+            <dependency>
+                <groupId>com.jayway.restassured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${rest-assured.version}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -68,21 +89,18 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger2.version}</version>
             </dependency>
-            <!--+++++++++++++++++++++++++++++++Test+++++++++++++++++++++++++++++++++++++++++++++-->
-
+            <!--+++++++++++++++++++++++++++++++Own module+++++++++++++++++++++++++++++++++++++++++++++-->
             <dependency>
-                <groupId>com.jayway.restassured</groupId>
-                <artifactId>rest-assured</artifactId>
-                <version>${rest-assured.version}</version>
-                <scope>test</scope>
+                <groupId>com.aequilibrium</groupId>
+                <artifactId>api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aequilibrium</groupId>
+                <artifactId>business</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
 
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
-            </dependency>
 
 
         </dependencies>
