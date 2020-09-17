@@ -17,11 +17,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>transformer-api</module>
+        <module>transformer-api-impl</module>
         <module>transformer-persistence</module>
         <module>transformer-common</module>
-        <module>transformer-business</module>
-        <module>transformer-ws</module>
         <module>transformer-test</module>
+        <module>transformer-app</module>
     </modules>
 
     <properties>
@@ -33,6 +33,8 @@
         <javaee-api.version>8.0</javaee-api.version>
         <commons-csv.version>1.4</commons-csv.version>
         <httpclient.version>4.5.12</httpclient.version>
+        <h2.version>1.4.194</h2.version>
+        <openapi-generator.version>3.0.0</openapi-generator.version>
     </properties>
 
 
@@ -48,6 +50,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-classic</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -76,6 +84,11 @@
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
 
             <!--+++++++++++++++++++++++++++++++Test+++++++++++++++++++++++++++++++++++++++++++++-->
 
@@ -95,6 +108,11 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger2.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator</artifactId>
+                <version>${openapi-generator.version}</version>
+            </dependency>
             <!--+++++++++++++++++++++++++++++++Own module+++++++++++++++++++++++++++++++++++++++++++++-->
             <dependency>
                 <groupId>com.aequilibrium</groupId>
@@ -103,12 +121,12 @@
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
-                <artifactId>transformer-business</artifactId>
+                <artifactId>transformer-service</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
-                <artifactId>transformer-ws</artifactId>
+                <artifactId>transformer-api-impl</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>

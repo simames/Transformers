@@ -26,7 +26,7 @@
         </dependency>
         <dependency>
             <groupId>com.aequilibrium</groupId>
-            <artifactId>transformer-ws</artifactId>
+            <artifactId>transformer-api-impl</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
