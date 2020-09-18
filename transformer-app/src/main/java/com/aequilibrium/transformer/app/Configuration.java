@@ -1,5 +1,6 @@
 package com.aequilibrium.transformer.app;
 
+import com.aequilibrium.transformer.app.filter.TransformerUnhandledErrorFilter;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import org.springframework.context.annotation.Bean;
 
@@ -18,4 +19,10 @@ public class Configuration {
         transformerMap.put("en",(Map)enProp);
         return new TransformerErrorStatic(transformerMap);
     }
+
+    @Bean
+    TransformerUnhandledErrorFilter unhandledErrorFilter(){
+        return new TransformerUnhandledErrorFilter();
+    }
+
 }

@@ -14,7 +14,8 @@ public class TransformerErrorStatic {
 
 
     /*----------------------- transformer general Job exception------------------------------------------------*/
-    public static final String GENERAL_TRANSFORMER_DOES_NOT_EXIST = "E001";
+    public static final String ERROR_TRANSFORMER_GENERAL_INTERNAL_ERROR = "ETG001";
+    public static final String ERROR_TRANSFORMER_PERSISTENCE_TRANSFORMER_DOES_NOT_EXIST = "ETP001";
 
 
 

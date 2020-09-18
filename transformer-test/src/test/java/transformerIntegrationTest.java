@@ -64,7 +64,7 @@ public class transformerIntegrationTest
         try{
             DeleteTransformerResponse response = transformerAPI.deleteTransformer(new DeleteTransformerRequest(transformer));
         }catch (TransformerError e){
-            assertEquals(e.getCode(), TransformerErrorStatic.GENERAL_TRANSFORMER_DOES_NOT_EXIST);
+            assertEquals(e.getCode(), TransformerErrorStatic.ERROR_TRANSFORMER_PERSISTENCE_TRANSFORMER_DOES_NOT_EXIST);
         }
 
     }
