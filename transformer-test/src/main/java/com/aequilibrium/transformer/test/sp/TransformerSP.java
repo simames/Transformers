@@ -1,8 +1,8 @@
 package com.aequilibrium.transformer.test.sp;
 
-import com.aequilibrium.transformer.api.impl.api.model.CreateTransformerRequest;
-import com.aequilibrium.transformer.api.impl.api.model.CreateTransformerResponse;
-import com.aequilibrium.transformer.api.impl.api.service.TransformerAPI;
+import com.aequilibrium.transformer.common.TransformerError;
+import com.aequilibrium.transformer.common.model.*;
+import com.aequilibrium.transformer.common.service.TransformerAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,4 +24,21 @@ public class TransformerSP implements TransformerAPI {
     public CreateTransformerResponse createTransformer(CreateTransformerRequest request) {
         return transformerRestTemplate.postForObject(transformerUrl + "transformer/createTransformer", request, CreateTransformerResponse.class);
     }
+
+    @Override
+    public UpdateTransformerResponse updateTransformer(UpdateTransformerRequest request) {
+        return transformerRestTemplate.postForObject(transformerUrl + "transformer/updateTransformer", request, UpdateTransformerResponse.class);
+    }
+
+    @Override
+    public ListTransformerResponse listTransformers() {
+        return transformerRestTemplate.postForObject(transformerUrl + "transformer/listTransformer", null, ListTransformerResponse.class);
+    }
+
+    @Override
+    public DeleteTransformerResponse deleteTransformer(DeleteTransformerRequest request) throws TransformerError {
+        return transformerRestTemplate.postForObject(transformerUrl + "transformer/deleteTransformer", request, DeleteTransformerResponse.class);
+    }
+
+
 }

@@ -1,7 +1,7 @@
 package com.aequilibrium.transformer.test.config;
 
-import com.aequilibrium.transformer.api.impl.api.TransformerError;
-import com.aequilibrium.transformer.api.impl.api.TransformerFault;
+import com.aequilibrium.transformer.common.TransformerError;
+import com.aequilibrium.transformer.common.TransformerFault;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

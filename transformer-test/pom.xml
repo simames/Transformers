@@ -21,6 +21,10 @@
             <artifactId>transformer-common</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.aequilibrium</groupId>
+            <artifactId>transformer-app</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>

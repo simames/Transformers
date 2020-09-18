@@ -25,6 +25,10 @@
             <groupId>org.openapitools</groupId>
             <artifactId>openapi-generator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.aequilibrium</groupId>
+            <artifactId>transformer-common</artifactId>
+        </dependency>
     </dependencies>
 
 

@@ -1,46 +1,45 @@
-package com.aequilibrium.transformer.persistence.model;
+package com.aequilibrium.transformer.common.model;
 
-import org.springframework.stereotype.Component;
+public class Transformer {
 
-import javax.persistence.*;
-
-@Entity
-public class TransformerEntity {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
-
-    @Column
+    private Long Id;
     private int strength;
-    @Column
     private int intelligence;
-    @Column
     private int speed;
-    @Column
     private int endurance;
-    @Column
     private int rank;
-    @Column
     private int courage;
-    @Column
     private int firepower;
-    @Column
     private int skill;
 
-    public long getId() {
-        return id;
+    protected Transformer() {
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Transformer( int strength, int intelligence, int speed, int endurance, int rank, int courage, int firepower, int skill) {
+        this.strength = strength;
+        this.intelligence = intelligence;
+        this.speed = speed;
+        this.endurance = endurance;
+        this.rank = rank;
+        this.courage = courage;
+        this.firepower = firepower;
+        this.skill = skill;
     }
 
-    public int getStrength() {
-        return strength;
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
     }
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public int getStrength() {
+        return strength;
     }
 
     public int getIntelligence() {

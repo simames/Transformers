@@ -136,6 +136,11 @@
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
+                <artifactId>transformer-app</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aequilibrium</groupId>
                 <artifactId>transformer-persistence</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
