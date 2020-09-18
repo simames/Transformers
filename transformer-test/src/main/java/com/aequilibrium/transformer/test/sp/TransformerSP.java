@@ -1,14 +1,13 @@
 package com.aequilibrium.transformer.test.sp;
 
-import com.aequilibrium.transformer.common.TransformerError;
-import com.aequilibrium.transformer.common.model.*;
-import com.aequilibrium.transformer.common.service.TransformerAPI;
+import com.aequilibrium.transformer.api.model.*;
+import com.aequilibrium.transformer.api.service.TransformerAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
+import com.aequilibrium.transformer.common.*;
 
 @Service
 public class TransformerSP implements TransformerAPI {

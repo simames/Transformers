@@ -1,12 +1,12 @@
-package com.aequilibrium.transformer.common.model;
+package com.aequilibrium.transformer.api.model;
 
-public class UpdateTransformerRequest {
+public class UpdateTransformerResponse {
     private Transformer transformer;
 
-    protected UpdateTransformerRequest() {
+    public UpdateTransformerResponse() {
     }
 
-    public UpdateTransformerRequest(Transformer transformer) {
+    public UpdateTransformerResponse(Transformer transformer) {
         this.transformer = transformer;
     }
 

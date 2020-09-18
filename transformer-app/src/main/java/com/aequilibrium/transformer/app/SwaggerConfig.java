@@ -1,4 +1,4 @@
-package com.aequilibrium.transformer.common.impl.app;
+package com.aequilibrium.transformer.app;
 
 
 import org.springframework.context.annotation.Bean;

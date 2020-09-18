@@ -1,9 +1,9 @@
-package com.aequilibrium.transformer.common.impl;
+package com.aequilibrium.transformer.api.impl;
 
+import com.aequilibrium.transformer.api.model.*;
+import com.aequilibrium.transformer.api.service.TransformerAPI;
 import com.aequilibrium.transformer.common.TransformerError;
-import com.aequilibrium.transformer.common.model.*;
-import com.aequilibrium.transformer.common.service.TransformerAPI;
-import com.aequilibrium.transformer.common.impl.service.logic.TransformerService;
+import com.aequilibrium.transformer.service.logic.TransformerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

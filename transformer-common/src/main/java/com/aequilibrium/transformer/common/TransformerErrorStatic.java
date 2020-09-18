@@ -14,10 +14,10 @@ public class TransformerErrorStatic {
 
 
     /*----------------------- transformer general Job exception------------------------------------------------*/
-
-
-
     public static final String GENERAL_TRANSFORMER_DOES_NOT_EXIST = "E001";
+
+
+
 
     private final static String defaultLanguage = Locale.getDefault().getLanguage();
 

@@ -1,6 +1,6 @@
+import com.aequilibrium.transformer.api.model.*;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
-import com.aequilibrium.transformer.common.model.*;
 import com.aequilibrium.transformer.test.config.TransformerRestTemplateFactory;
 import com.aequilibrium.transformer.test.sp.TransformerSP;
 import org.junit.jupiter.api.BeforeAll;

@@ -1,7 +1,7 @@
-package com.aequilibrium.transformer.common.impl.service.converter;
+package com.aequilibrium.transformer.service.converter;
 
+import com.aequilibrium.transformer.api.model.Transformer;
 import com.aequilibrium.transformer.persistence.model.TransformerEntity;
-import com.aequilibrium.transformer.common.model.Transformer;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

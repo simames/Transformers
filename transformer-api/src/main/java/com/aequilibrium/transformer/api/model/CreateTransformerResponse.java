@@ -1,4 +1,4 @@
-package com.aequilibrium.transformer.common.model;
+package com.aequilibrium.transformer.api.model;
 
 public class CreateTransformerResponse  {
     private Transformer transformer;

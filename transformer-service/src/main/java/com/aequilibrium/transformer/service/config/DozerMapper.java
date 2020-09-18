@@ -1,6 +1,6 @@
-package com.aequilibrium.transformer.common.impl.service.config;
+package com.aequilibrium.transformer.service.config;
 
-import com.aequilibrium.transformer.common.model.Transformer;
+import com.aequilibrium.transformer.api.model.Transformer;
 import com.aequilibrium.transformer.persistence.model.TransformerEntity;
 import org.dozer.DozerBeanMapper;
 import org.dozer.loader.api.BeanMappingBuilder;

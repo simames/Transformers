@@ -1,11 +1,11 @@
-package com.aequilibrium.transformer.common.impl.service.logic;
+package com.aequilibrium.transformer.service.logic;
 
+import com.aequilibrium.transformer.api.model.Transformer;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import com.aequilibrium.transformer.persistence.model.TransformerEntity;
 import com.aequilibrium.transformer.persistence.service.ITransformerRepository;
-import com.aequilibrium.transformer.common.model.Transformer;
-import com.aequilibrium.transformer.common.impl.service.converter.TransformerConverter;
+import com.aequilibrium.transformer.service.converter.TransformerConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

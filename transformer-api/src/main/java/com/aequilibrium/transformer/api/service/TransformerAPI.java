@@ -1,7 +1,7 @@
-package com.aequilibrium.transformer.common.service;
+package com.aequilibrium.transformer.api.service;
 
+import com.aequilibrium.transformer.api.model.*;
 import com.aequilibrium.transformer.common.TransformerError;
-import com.aequilibrium.transformer.common.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
