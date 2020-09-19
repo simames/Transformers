@@ -27,8 +27,8 @@
 
         <RollingFile
                 name="RollingErrorFile"
-                fileName="../logs/transformer-core-error.log"
-                filePattern="../logs/transformer-core-error.log.%d{yyyyMMdd.HH}-%i.log.gz"
+                fileName="../logs/transformer-error.log"
+                filePattern="../logs/transformer-error.log.%d{yyyyMMdd.HH}-%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout pattern="${sys:FILE_LOG_PATTERN}" charset="UTF-8"/>
             <Policies>
@@ -66,8 +66,8 @@
 
         <RollingFile
                 name="RollingSecurityFile"
-                fileName="../logs/transformer-core-security.log"
-                filePattern="../logs/transformer-core-security.log.%d{yyyyMMdd.HH}-%i.log.gz"
+                fileName="../logs/transformer-security.log"
+                filePattern="../logs/transformer-security.log.%d{yyyyMMdd.HH}-%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout pattern="${sys:FILE_LOG_PATTERN}" charset="UTF-8"/>
             <Policies>
@@ -78,24 +78,9 @@
         </RollingFile>
 
 
-        <!--<JDBC name="DB" tableName="APP_LOGS">-->
-        <!--<ConnectionFactory class="com.misc.bis.Log4j2ConnectionFactory" method="getConnection" />-->
-        <!--<Column name="START_TIME" pattern="%X{START_TIME}" />-->
-        <!--<Column name="CALLER_ADDR" pattern="%X{CALLER_ADDR}"/>-->
-        <!--<Column name="USERNAME" pattern="%X{USERNAME}"/>-->
-        <!--<Column name="DURATION" pattern="%X{DURATION}" isUnicode="false"/>-->
-        <!--<Column name="END_TIME" pattern="%X{END_TIME}"/>-->
-        <!--<Column name="METHOD" pattern="%X{METHOD}"/>-->
-        <!--<Column name="PARAMETERS" pattern="%X{PARAMETERS}"/>-->
-        <!--<Column name="RETURN_VALUE" pattern="%X{RETURN_VALUE}"/>-->
-        <!--<Column name="PACKAGE" pattern="%X{CLASS_NAME}"/>-->
-        <!--<Column name="ERROR" pattern="%X{ERROR}"/>-->
-        <!--</JDBC>-->
 
         <Async name="ASYNCAppender">
             <AppenderRef ref="SystemOut" level="all"/>
-            <!--<AppenderRef ref="DB" level="info"/>-->
-            <!--<AppenderRef ref="DB" level="info"/>-->
             <AppenderRef ref="RollingInfoFile" level="info"/>
             <AppenderRef ref="RollingErrorFile" level="error"/>
 <!--            <AppenderRef ref="RollingDebugFile" level="debug"/>-->
@@ -117,12 +102,10 @@
         <logger name="com.pdr.bis.common.ui.cleaner.TempCleaner" level="INFO" additivity="false"/>
         <logger name="org.hibernate.orm.deprecation" level="ERROR"/>
 
-        <!--<logger name="org.hibernate.SQL" level="DEBUG"/>-->
-        <!--<logger name="org.hibernate.type" level="TRACE"/>-->
 
-        <logger name="com.modernisc.security.log" >
-            <appender-ref ref="RollingSecurityFile"/>
-        </logger>
+        <!--<logger name="com.modernisc.security.log" >-->
+            <!--<appender-ref ref="RollingSecurityFile"/>-->
+        <!--</logger>-->
 
         <Root level="info">
             <appender-ref ref="ASYNCAppender"/>
