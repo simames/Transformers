@@ -53,12 +53,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot.version}</version>
-                <!--<exclusions>-->
-                    <!--<exclusion>-->
-                        <!--<groupId>ch.qos.logback</groupId>-->
-                        <!--<artifactId>logback-classic</artifactId>-->
-                    <!--</exclusion>-->
-                <!--</exclusions>-->
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -163,12 +157,6 @@
             </dependency>
 
             <!--&lt;!&ndash;============================================ log =============================================&ndash;&gt;-->
-
-            <!--<dependency>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-starter-log4j2</artifactId>-->
-                <!--<version>${spring-boot-starter-log4j2.version}</version>-->
-            <!--</dependency>-->
 
         </dependencies>
     </dependencyManagement>
