@@ -47,7 +47,7 @@ public class TransformerError extends RuntimeException implements Serializable {
     public void setFaultInfo(TransformerFault faultInfo) {
         this.faultInfo = faultInfo;
     }
-    
+
     public void setCode(String code){
         this.faultInfo.setCode(code);
     }

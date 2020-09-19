@@ -42,7 +42,7 @@ public class TransformerService {
         if(repository.existsById(entity.getId())){
             repository.delete(entity);
         }else{
-            throw new TransformerError(TransformerErrorStatic.GENERAL_TRANSFORMER_DOES_NOT_EXIST);
+            throw new TransformerError(TransformerErrorStatic.ERROR_TRANSFORMER_PERSISTENCE_TRANSFORMER_DOES_NOT_EXIST);
         }
         return "deleted";
     }

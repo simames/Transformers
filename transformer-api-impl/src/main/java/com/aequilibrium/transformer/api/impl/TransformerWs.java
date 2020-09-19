@@ -7,6 +7,8 @@ import com.aequilibrium.transformer.service.logic.TransformerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping(value = "/transformer")
 public class TransformerWs implements TransformerAPI {
@@ -19,12 +21,12 @@ public class TransformerWs implements TransformerAPI {
 
 
     @Override
-    public CreateTransformerResponse createTransformer(CreateTransformerRequest request) {
+    public CreateTransformerResponse createTransformer(@Valid CreateTransformerRequest request) {
         return new CreateTransformerResponse(service.createTransformer(request.getTransformer()));
     }
 
     @Override
-    public UpdateTransformerResponse updateTransformer(UpdateTransformerRequest request) {
+    public UpdateTransformerResponse updateTransformer(@Valid UpdateTransformerRequest request) {
         return new UpdateTransformerResponse(service.createTransformer(request.getTransformer()));
     }
 
@@ -34,7 +36,7 @@ public class TransformerWs implements TransformerAPI {
     }
 
     @Override
-    public DeleteTransformerResponse deleteTransformer(DeleteTransformerRequest request)  throws TransformerError {
+    public DeleteTransformerResponse deleteTransformer(@Valid DeleteTransformerRequest request)  throws TransformerError {
         return new DeleteTransformerResponse(service.deleteTransformer(request.getTransformer()));
     }
 }

@@ -1,15 +1,34 @@
 package com.aequilibrium.transformer.api.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Transformer {
 
     private Long Id;
+    @NotNull
+    @Size(min=1,max = 10)
     private int strength;
+    @NotNull
+    @Size(min=1,max = 10)
     private int intelligence;
+    @NotNull
+    @Size(min=1,max = 10)
     private int speed;
+    @NotNull
+    @Size(min=1,max = 10)
     private int endurance;
+    @NotNull
+    @Size(min=1,max = 10)
     private int rank;
+    @NotNull
+    @Size(min=1,max = 10)
     private int courage;
+    @NotNull
+    @Size(min=1,max = 10)
     private int firepower;
+    @NotNull
+    @Size(min=1,max = 10)
     private int skill;
 
     protected Transformer() {

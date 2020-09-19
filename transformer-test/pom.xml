@@ -12,6 +12,11 @@
     <artifactId>transformer-test</artifactId>
 
     <dependencies>
+        <!--+++++++++++++++++++++++++++++++Own module+++++++++++++++++++++++++++++++++++++++++++++-->
+        <dependency>
+            <groupId>com.aequilibrium</groupId>
+            <artifactId>transformer-api-impl</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.aequilibrium</groupId>
             <artifactId>transformer-api</artifactId>
@@ -28,10 +33,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.aequilibrium</groupId>
-            <artifactId>transformer-api-impl</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -52,7 +54,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
@@ -60,6 +61,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--++++++++++++++++++++++++++++++++++ util +++++++++++++++++++-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+
     </dependencies>
 
 

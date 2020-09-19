@@ -12,12 +12,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.mock;
 
 @SpringBootTest(classes = {TransformerRestTemplateFactory.class,TransformerSP.class})
 @ComponentScan("com.aequilibrium.transformer.*")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class transformerIntegrationTest
+public class TransformerIntegrationCrudTest
 {
 
     @Autowired
@@ -38,9 +37,10 @@ public class transformerIntegrationTest
 
     @Test
     public void updateTransformer(){
-        transformer.setId(1L);
-        transformer.setStrength(10);
-        UpdateTransformerResponse response = transformerAPI.updateTransformer(new UpdateTransformerRequest(transformer));
+        CreateTransformerResponse createTransformerResponse = transformerAPI.createTransformer(new CreateTransformerRequest(transformer));
+        Transformer responseTransformer = createTransformerResponse.getTransformer();
+        responseTransformer.setStrength(10);
+        UpdateTransformerResponse response = transformerAPI.updateTransformer(new UpdateTransformerRequest(responseTransformer));
         assertEquals(10,response.getTransformer().getStrength());
     }
 
@@ -66,7 +66,6 @@ public class transformerIntegrationTest
         }catch (TransformerError e){
             assertEquals(e.getCode(), TransformerErrorStatic.ERROR_TRANSFORMER_PERSISTENCE_TRANSFORMER_DOES_NOT_EXIST);
         }
-
     }
 
 
