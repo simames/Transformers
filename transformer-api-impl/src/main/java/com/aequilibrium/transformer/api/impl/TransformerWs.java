@@ -1,5 +1,6 @@
 package com.aequilibrium.transformer.api.impl;
 
+import com.aequilibrium.transformer.api.impl.converter.WebServiceConverter;
 import com.aequilibrium.transformer.api.model.*;
 import com.aequilibrium.transformer.api.service.TransformerAPI;
 import com.aequilibrium.transformer.common.TransformerError;
@@ -15,7 +16,11 @@ public class TransformerWs implements TransformerAPI {
 
     private final TransformerService service;
 
-    public TransformerWs(TransformerService service) {
+
+    private WebServiceConverter converter;
+
+    public TransformerWs(TransformerService service,WebServiceConverter converter) {
+        this.converter = converter;
         this.service = service;
     }
 
@@ -38,5 +43,10 @@ public class TransformerWs implements TransformerAPI {
     @Override
     public DeleteTransformerResponse deleteTransformer(@Valid DeleteTransformerRequest request)  throws TransformerError {
         return new DeleteTransformerResponse(service.deleteTransformer(request.getTransformer()));
+    }
+
+    @Override
+    public BattleResponse transformersBattle(@Valid BattleRequest request) throws TransformerError {
+        return converter.toBattleResponse(service.transformersBattle(request.getTransformerIds()));
     }
 }

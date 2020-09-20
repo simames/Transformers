@@ -1,7 +1,5 @@
 package com.aequilibrium.transformer.persistence.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 @Entity
@@ -9,23 +7,29 @@ public class TransformerEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
+    @Column
+    private String name;
+    @Column
+    private Integer strength;
+    @Column
+    private Integer intelligence;
+    @Column
+    private Integer speed;
+    @Column
+    private Integer endurance;
+    @Column
+    private Integer rank;
+    @Column
+    private Integer courage;
+    @Column
+    private Integer firepower;
+    @Column
+    private Integer skill;
 
-    @Column
-    private int strength;
-    @Column
-    private int intelligence;
-    @Column
-    private int speed;
-    @Column
-    private int endurance;
-    @Column
-    private int rank;
-    @Column
-    private int courage;
-    @Column
-    private int firepower;
-    @Column
-    private int skill;
+    @OneToOne
+    private TransformerTypeEntity transformerTypeEntity;
+
+
 
     public long getId() {
         return id;
@@ -35,67 +39,83 @@ public class TransformerEntity {
         this.id = id;
     }
 
-    public int getStrength() {
+    public Integer getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(Integer strength) {
         this.strength = strength;
     }
 
-    public int getIntelligence() {
+    public Integer getIntelligence() {
         return intelligence;
     }
 
-    public void setIntelligence(int intelligence) {
+    public void setIntelligence(Integer intelligence) {
         this.intelligence = intelligence;
     }
 
-    public int getSpeed() {
+    public Integer getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(Integer speed) {
         this.speed = speed;
     }
 
-    public int getEndurance() {
+    public Integer getEndurance() {
         return endurance;
     }
 
-    public void setEndurance(int endurance) {
+    public void setEndurance(Integer endurance) {
         this.endurance = endurance;
     }
 
-    public int getRank() {
+    public Integer getRank() {
         return rank;
     }
 
-    public void setRank(int rank) {
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 
-    public int getCourage() {
+    public Integer getCourage() {
         return courage;
     }
 
-    public void setCourage(int courage) {
+    public void setCourage(Integer courage) {
         this.courage = courage;
     }
 
-    public int getFirepower() {
+    public Integer getFirepower() {
         return firepower;
     }
 
-    public void setFirepower(int firepower) {
+    public void setFirepower(Integer firepower) {
         this.firepower = firepower;
     }
 
-    public int getSkill() {
+    public Integer getSkill() {
         return skill;
     }
 
-    public void setSkill(int skill) {
+    public void setSkill(Integer skill) {
         this.skill = skill;
+    }
+
+    public TransformerTypeEntity getTransformerTypeEntity() {
+        return transformerTypeEntity;
+    }
+
+    public void setTransformerTypeEntity(TransformerTypeEntity type) {
+        this.transformerTypeEntity = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

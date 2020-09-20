@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -26,17 +28,48 @@ public class TransformerIntegrationCrudTest
 
     @BeforeAll
     public void createMockTransformer(){
-        this.transformer = new Descepticon(1,2,3,4,5,6,7,8);
+        this.transformer = new Descepticon("D",2,3,4,5,6,7,8,1);
     }
 
     @Test
-    public void createTransformer(){
+    public void test_createTransformer(){
         CreateTransformerResponse response = transformerAPI.createTransformer(new CreateTransformerRequest(transformer));
         assertNotNull(response.getTransformer().getId());
     }
 
     @Test
-    public void updateTransformer(){
+    public void test_createTransformerWithDescepticonType(){
+        CreateTransformerResponse response = transformerAPI.createTransformer(new CreateTransformerRequest(transformer));
+        assertEquals(TransformerEnumType.DESEPTICAN.getCode(),response.getTransformer().getType());
+    }
+    @Test
+    public void test_createTransformerWithAutobotType(){
+        Transformer autoBot = new Autobot("A",2,3,4,5,6,7,8,1);
+        CreateTransformerResponse response = transformerAPI.createTransformer(new CreateTransformerRequest(autoBot));
+        assertEquals(TransformerEnumType.AUTOBOT.getCode(),response.getTransformer().getType());
+    }
+    @Test
+    public void test_createTransformerWithAllInputs(){
+        Transformer autoBot = new Autobot("A",2,3,4,5,6,7,8,1);
+        CreateTransformerResponse response = transformerAPI.createTransformer(new CreateTransformerRequest(autoBot));
+        checkingTransEqualInputs(response.getTransformer(),autoBot);
+    }
+
+    private void checkingTransEqualInputs(Transformer transformer, Transformer autoBot) {
+        assertEquals(autoBot.getType(),transformer.getType());
+        assertEquals(autoBot.getName(),transformer.getName());
+        assertEquals(autoBot.getStrength(),transformer.getStrength());
+        assertEquals(autoBot.getCourage(),transformer.getCourage());
+        assertEquals(autoBot.getEndurance(),transformer.getEndurance());
+        assertEquals(autoBot.getFirepower(),transformer.getFirepower());
+        assertEquals(autoBot.getIntelligence(),transformer.getIntelligence());
+        assertEquals(autoBot.getRank(),transformer.getRank());
+        assertEquals(autoBot.getSkill(),transformer.getSkill());
+        assertEquals(autoBot.getSpeed(),transformer.getSpeed());
+    }
+
+    @Test
+    public void test_updateTransformer(){
         CreateTransformerResponse createTransformerResponse = transformerAPI.createTransformer(new CreateTransformerRequest(transformer));
         Transformer responseTransformer = createTransformerResponse.getTransformer();
         responseTransformer.setStrength(10);
@@ -45,21 +78,39 @@ public class TransformerIntegrationCrudTest
     }
 
     @Test
-    public void ListTransformer(){
+    public void test_ListTransformer(){
         ListTransformerResponse response = transformerAPI.listTransformers();
+        List<Transformer> transformers = response.getTransformers();
         assertNotNull(response.getTransformers());
-
+        for (Transformer transformer :
+                transformers) {
+            checkingTransNotNull(transformer);
+        }
     }
 
+    private void checkingTransNotNull(Transformer transformer) {
+        assertNotNull(transformer.getId());
+        assertNotNull(transformer.getName());
+        assertNotNull(transformer.getStrength());
+        assertNotNull(transformer.getCourage());
+        assertNotNull(transformer.getEndurance());
+        assertNotNull(transformer.getFirepower());
+        assertNotNull(transformer.getIntelligence());
+        assertNotNull(transformer.getRank());
+        assertNotNull(transformer.getSkill());
+        assertNotNull(transformer.getSpeed());
+    }
+
+
     @Test
-    public void deleteTransformer(){
+    public void test_deleteTransformer(){
         CreateTransformerResponse createTransformerResponse = transformerAPI.createTransformer(new CreateTransformerRequest(transformer));
         DeleteTransformerResponse response = transformerAPI.deleteTransformer(new DeleteTransformerRequest(createTransformerResponse.getTransformer()));
         assertEquals("deleted",response.getResult());
     }
 
     @Test
-    public void deleteTransformerGetError(){
+    public void test_deleteTransformerGetError(){
         transformer.setId(5654L);
         try{
             DeleteTransformerResponse response = transformerAPI.deleteTransformer(new DeleteTransformerRequest(transformer));
@@ -68,5 +119,20 @@ public class TransformerIntegrationCrudTest
         }
     }
 
+
+    @Test
+    public void Test_validationType(){
+        try{
+            transformer.setType(null);
+        }catch (TransformerError e){
+            assertEquals(e.getCode(), TransformerErrorStatic.ERROR_TRANSFORMER_GENERAL_TYPE_NOT_VALID);
+        }
+    }
+
+    @Test
+    public void Test_validation_transformer(){
+        Transformer validationTransformer = new Descepticon("D",22,22,22,22,22,22,22,22);
+//        transformerAPI.createTransformer(new CreateTransformerRequest(validationTransformer));
+    }
 
 }

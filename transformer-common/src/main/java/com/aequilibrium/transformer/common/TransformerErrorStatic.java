@@ -7,6 +7,7 @@ import java.util.Map;
 public class TransformerErrorStatic {
 
 
+
     private static Map<String, Map<String, String>> errorsMap;
     public TransformerErrorStatic(Map<String, Map<String, String>> errorsMap) {
         this.errorsMap = errorsMap;
@@ -16,8 +17,8 @@ public class TransformerErrorStatic {
     /*----------------------- transformer general Job exception------------------------------------------------*/
     public static final String ERROR_TRANSFORMER_GENERAL_INTERNAL_ERROR = "ETG001";
     public static final String ERROR_TRANSFORMER_PERSISTENCE_TRANSFORMER_DOES_NOT_EXIST = "ETP001";
-
-
+    public static final String ERROR_TRANSFORMER_GENERAL_TYPE_NOT_VALID = "ETG002";
+    public static final String ERROR_TRANSFORMER_BATTLE_TRANSFORMERS_DO_NOT_EXIST = "ETB001";
 
 
     private final static String defaultLanguage = Locale.getDefault().getLanguage();

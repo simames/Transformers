@@ -39,5 +39,10 @@ public class TransformerSP implements TransformerAPI {
         return transformerRestTemplate.postForObject(transformerUrl + "transformer/deleteTransformer", request, DeleteTransformerResponse.class);
     }
 
+    @Override
+    public BattleResponse transformersBattle(BattleRequest request) throws TransformerError {
+        return transformerRestTemplate.postForObject(transformerUrl + "transformer/transformersBattle", request, BattleResponse.class);
+    }
+
 
 }
