@@ -61,7 +61,7 @@ public class TransformerBattle {
     private List<Transformer> getTransformersWinningTeam() {
         if(descepticonWinningtTeam.size()>autobotsWinningTeam.size()){
             setWinner(descepticonWinningtTeam);
-            return descepticonWinningtTeam;
+             return descepticonWinningtTeam;
         }else  {
             setWinner(autobotsWinningTeam);
             return autobotsWinningTeam;
@@ -70,7 +70,9 @@ public class TransformerBattle {
 
     private void setWinner(List<Transformer> winningTeam) {
         winningTeam.sort(this::compareWinning);
-        this.transformerWinner = winningTeam.get(0);
+        if(winningTeam.size()>0){
+            this.transformerWinner = winningTeam.get(0);
+        }
     }
 
     private int compareWinning(Transformer o1, Transformer o2) {
@@ -80,8 +82,10 @@ public class TransformerBattle {
 
     public List<Transformer> getSurvivingMembersOfLosingTeam() {
         if(descepticonWinningtTeam.size()>autobotsWinningTeam.size()){
+            autobotsWinningTeam.addAll(autobots);
             return autobotsWinningTeam;
         }else  {
+            descepticonWinningtTeam.addAll(descepticons);
             return descepticonWinningtTeam;
         }
     }
@@ -92,6 +96,12 @@ public class TransformerBattle {
         if(abs(autobot.getCourage()-descepticon.getCourage())>3 &&
                 abs(autobot.getStrength()-descepticon.getStrength())>2) {
             if (autobot.getCourage() > descepticon.getCourage()) {
+                autobotsWinningTeam.add(autobot);
+            } else {
+                descepticonWinningtTeam.add(descepticon);
+            }
+        }else if(abs(autobot.getSkill()-descepticon.getSkill())>2){
+            if (autobot.getSkill() > descepticon.getSkill()) {
                 autobotsWinningTeam.add(autobot);
             } else {
                 descepticonWinningtTeam.add(descepticon);

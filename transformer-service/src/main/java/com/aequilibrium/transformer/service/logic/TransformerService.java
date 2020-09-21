@@ -58,7 +58,7 @@ public class TransformerService {
     public BattleResult transformersBattle(List<Long> transformerIds) throws TransformerError{
         BattleResult result;
         List<TransformerEntity> transformers = (List<TransformerEntity>) iTransformerRepository.findAllById(transformerIds);
-        if(transformers.size()==0){
+        if(transformers.size()<2){
             throw new TransformerError(TransformerErrorStatic.ERROR_TRANSFORMER_BATTLE_TRANSFORMERS_DO_NOT_EXIST);
         }else{
             TransformerBattle transformerBattle = new TransformerBattle(converter.toTransformers(transformers), iTransformerRepository);
