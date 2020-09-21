@@ -106,7 +106,12 @@ public class Transformer implements Comparable<Transformer> {
 
     @Override
     public int compareTo(Transformer o) {
-        return (o.getRank() > this.getRank())?0:-1;
+        if(TransformerWinnerNames.OPTIMUS_PRIME.equals(this.getName())||
+                TransformerWinnerNames.PREDAKING.equals(this.getName())){
+            return -1;
+        }else{
+            return (o.getRank() > this.getRank())?0:-1;
+        }
     }
 
     @Override

@@ -20,6 +20,7 @@ public class TransformerService {
     @Autowired
     private TransformerConverter converter;
 
+
     private final ITransformerRepository iTransformerRepository;
 
     private final ITransformerTypeRepository iTransformerTypeRepository;
@@ -61,7 +62,7 @@ public class TransformerService {
         if(transformers.size()<2){
             throw new TransformerError(TransformerErrorStatic.ERROR_TRANSFORMER_BATTLE_TRANSFORMERS_DO_NOT_EXIST);
         }else{
-            TransformerBattle transformerBattle = new TransformerBattle(converter.toTransformers(transformers), iTransformerRepository);
+            TransformerBattle transformerBattle = new TransformerBattle(converter.toTransformers(transformers), iTransformerRepository,converter);
             result = transformerBattle.battle();
         }
         return result;

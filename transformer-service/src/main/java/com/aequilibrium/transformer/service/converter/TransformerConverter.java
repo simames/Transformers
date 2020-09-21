@@ -40,6 +40,13 @@ public class TransformerConverter {
         return transformer;
     }
 
+    public List<TransformerEntity> toEntities(List<Transformer> transformers) {
+        return transformers
+                .stream()
+                .map(this::toEntity)
+                .collect(Collectors.toList());
+    }
+
     public List<Transformer> toTransformers(List<TransformerEntity> entities) {
         return entities
                 .stream()
@@ -54,4 +61,6 @@ public class TransformerConverter {
     public TransformerType toTransformerType(TransformerTypeEntity entity) {
         return mapper.map(entity,TransformerType.class);
     }
+
+
 }
