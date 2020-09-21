@@ -12,7 +12,7 @@ import java.util.Properties;
 
 @Configuration
 public class WebConfiguration {
-    @Bean
+    @Bean("error")
     public TransformerErrorStatic transformerErrorStatic() throws IOException {
         Properties enProp = new Properties();
         Map<String, Map<String, String>> transformerMap = new HashMap<>();

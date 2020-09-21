@@ -27,10 +27,10 @@ public class TransformerBattle {
 
     public TransformerBattle(List<Transformer> transformers, ITransformerRepository iTransformerRepository) {
         this.iTransformerRepository = iTransformerRepository;
-        for (Transformer transformer: transformers) {
-            if(TransformerEnumType.DESEPTICAN.getCode().equals(transformer.getType())){
+        for (Transformer transformer : transformers) {
+            if (TransformerEnumType.DESEPTICAN.getCode().equals(transformer.getType())) {
                 descepticons.add(transformer);
-            }else if(TransformerEnumType.AUTOBOT.getCode().equals(transformer.getType())){
+            } else if (TransformerEnumType.AUTOBOT.getCode().equals(transformer.getType())) {
                 autobots.add(transformer);
             }
         }
@@ -40,8 +40,8 @@ public class TransformerBattle {
         Collections.sort(descepticons);
         Collections.sort(autobots);
         numberOfBattles = 0;
-        while (descepticons.size()>0 && autobots.size()>0){
-            if(twoTransformerBattle(descepticons.get(0), autobots.get(0))){
+        while (descepticons.size() > 0 && autobots.size() > 0) {
+            if (twoTransformerBattle(descepticons.get(0), autobots.get(0))) {
                 numberOfBattles++;
             }
         }
@@ -59,10 +59,10 @@ public class TransformerBattle {
 
 
     private List<Transformer> getTransformersWinningTeam() {
-        if(descepticonWinningtTeam.size()>autobotsWinningTeam.size()){
+        if (descepticonWinningtTeam.size() > autobotsWinningTeam.size()) {
             setWinner(descepticonWinningtTeam);
-             return descepticonWinningtTeam;
-        }else  {
+            return descepticonWinningtTeam;
+        } else {
             setWinner(autobotsWinningTeam);
             return autobotsWinningTeam;
         }
@@ -70,21 +70,21 @@ public class TransformerBattle {
 
     private void setWinner(List<Transformer> winningTeam) {
         winningTeam.sort(this::compareWinning);
-        if(winningTeam.size()>0){
+        if (winningTeam.size() > 0) {
             this.transformerWinner = winningTeam.get(0);
         }
     }
 
     private int compareWinning(Transformer o1, Transformer o2) {
-        return o1.getRanking()>o2.getRanking()?0:-1;
+        return o1.getRanking() > o2.getRanking() ? 0 : -1;
     }
 
 
     public List<Transformer> getSurvivingMembersOfLosingTeam() {
-        if(descepticonWinningtTeam.size()>autobotsWinningTeam.size()){
+        if (descepticonWinningtTeam.size() > autobotsWinningTeam.size()) {
             autobotsWinningTeam.addAll(autobots);
             return autobotsWinningTeam;
-        }else  {
+        } else {
             descepticonWinningtTeam.addAll(descepticons);
             return descepticonWinningtTeam;
         }
@@ -93,42 +93,52 @@ public class TransformerBattle {
 
     private boolean twoTransformerBattle(Transformer descepticon, Transformer autobot) {
         boolean isBattle = true;
-        if(abs(autobot.getCourage()-descepticon.getCourage())>3 &&
-                abs(autobot.getStrength()-descepticon.getStrength())>2) {
+        if (TransformerWinnerNames.OPTIMUS_PRIME.equals(descepticon.getName()) ||
+                TransformerWinnerNames.PREDAKING.equals(descepticon.getName())) {
+            isBattle = isBattleWinnerNames(autobot, descepticon, isBattle, descepticonWinningtTeam);
+        } else if (TransformerWinnerNames.OPTIMUS_PRIME.equals(autobot.getName()) ||
+                TransformerWinnerNames.PREDAKING.equals(autobot.getName())) {
+            isBattle = isBattleWinnerNames(descepticon, autobot, isBattle, autobotsWinningTeam);
+        } else if (abs(autobot.getCourage() - descepticon.getCourage()) > 3 &&
+                abs(autobot.getStrength() - descepticon.getStrength()) > 2) {
             if (autobot.getCourage() > descepticon.getCourage()) {
                 autobotsWinningTeam.add(autobot);
             } else {
                 descepticonWinningtTeam.add(descepticon);
             }
-        }else if(abs(autobot.getSkill()-descepticon.getSkill())>2){
+        } else if (abs(autobot.getSkill() - descepticon.getSkill()) > 2)
+
+        {
             if (autobot.getSkill() > descepticon.getSkill()) {
                 autobotsWinningTeam.add(autobot);
             } else {
                 descepticonWinningtTeam.add(descepticon);
             }
-        }else if(TransformerWinnerNames.OPTIMUS_PRIME.equals(descepticon.getName())||
-                TransformerWinnerNames.PREDAKING.equals(descepticon.getName())) {
-            if(!TransformerWinnerNames.OPTIMUS_PRIME.equals(autobot.getName())&&
-                    !TransformerWinnerNames.PREDAKING.equals(autobot.getName())){
-                descepticonWinningtTeam.add(descepticon);
-            }
-        }else if(TransformerWinnerNames.OPTIMUS_PRIME.equals(autobot.getName())||
-                TransformerWinnerNames.PREDAKING.equals(autobot.getName())) {
-            if(!TransformerWinnerNames.OPTIMUS_PRIME.equals(descepticon.getName())&&
-                    !TransformerWinnerNames.PREDAKING.equals(descepticon.getName())){
+        } else {
+            if (autobot.getRanking() > descepticon.getRanking()) {
                 autobotsWinningTeam.add(autobot);
-            }
-        }else{
-            if(autobot.getRanking()>descepticon.getRanking()){
-                autobotsWinningTeam.add(autobot);
-            }else if(descepticon.getRanking()>autobot.getRanking()){
+            } else if (descepticon.getRanking() > autobot.getRanking()) {
                 descepticonWinningtTeam.add(descepticon);
-            }else{
+            } else {
                 isBattle = false;
             }
         }
         descepticons.remove(descepticon);
         autobots.remove(autobot);
+        return isBattle;
+    }
+
+    private boolean isBattleWinnerNames(Transformer descepticon, Transformer autobot, boolean isBattle, List<Transformer> autobotsWinningTeam) {
+        if (!TransformerWinnerNames.OPTIMUS_PRIME.equals(descepticon.getName()) &&
+                !TransformerWinnerNames.PREDAKING.equals(descepticon.getName())) {
+            autobotsWinningTeam.add(autobot);
+        } else {
+            isBattle = false;
+            descepticonWinningtTeam.clear();
+            autobotsWinningTeam.clear();
+            descepticons.clear();
+            autobots.clear();
+        }
         return isBattle;
     }
 
