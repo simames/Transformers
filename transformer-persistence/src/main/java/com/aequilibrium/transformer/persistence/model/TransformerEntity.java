@@ -2,6 +2,7 @@ package com.aequilibrium.transformer.persistence.model;
 
 import javax.persistence.*;
 
+
 @Entity
 public class TransformerEntity {
     @Id
@@ -10,6 +11,7 @@ public class TransformerEntity {
     @Column
     private String name;
     @Column
+
     private Integer strength;
     @Column
     private Integer intelligence;
@@ -18,15 +20,20 @@ public class TransformerEntity {
     @Column
     private Integer endurance;
     @Column
+
     private Integer rank;
     @Column
+
     private Integer courage;
     @Column
+
     private Integer firepower;
     @Column
+
     private Integer skill;
 
     @OneToOne
+
     private TransformerTypeEntity transformerTypeEntity;
 
 

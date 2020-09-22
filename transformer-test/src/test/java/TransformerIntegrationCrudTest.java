@@ -1,4 +1,5 @@
 import com.aequilibrium.transformer.api.model.*;
+import com.aequilibrium.transformer.common.TransformerEnumType;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import com.aequilibrium.transformer.test.config.TransformerRestTemplateFactory;
@@ -132,7 +133,8 @@ public class TransformerIntegrationCrudTest
     @Test
     public void Test_validation_transformer(){
         Transformer validationTransformer = new Descepticon("D",22,22,22,22,22,22,22,22);
-//        transformerAPI.createTransformer(new CreateTransformerRequest(validationTransformer));
+        transformerAPI.createTransformer(new CreateTransformerRequest(validationTransformer));
+//        transformerAPI.createTransformer(null);
     }
 
 }

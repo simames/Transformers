@@ -1,10 +1,13 @@
 package com.aequilibrium.transformer.api.model;
 
-public class CreateTransformerRequest {
+import javax.validation.Valid;
+import java.io.Serializable;
+
+public class CreateTransformerRequest implements Serializable {
     private Transformer transformer;
 
 
-    public CreateTransformerRequest(Transformer iTransformer) {
+    public CreateTransformerRequest(@Valid Transformer iTransformer) {
         this.transformer = iTransformer;
     }
 

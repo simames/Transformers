@@ -1,7 +1,6 @@
 package com.aequilibrium.transformer.service.converter;
 
 import com.aequilibrium.transformer.api.model.Transformer;
-import com.aequilibrium.transformer.api.model.TransformerEnumType;
 import com.aequilibrium.transformer.persistence.model.TransformerEntity;
 import com.aequilibrium.transformer.persistence.model.TransformerTypeEntity;
 import com.aequilibrium.transformer.persistence.service.ITransformerTypeRepository;

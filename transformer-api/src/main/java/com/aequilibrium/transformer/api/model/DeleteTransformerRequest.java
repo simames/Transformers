@@ -1,6 +1,8 @@
 package com.aequilibrium.transformer.api.model;
 
-public class DeleteTransformerRequest {
+import java.io.Serializable;
+
+public class DeleteTransformerRequest  implements Serializable {
     private Transformer transformer;
 
     protected DeleteTransformerRequest() {

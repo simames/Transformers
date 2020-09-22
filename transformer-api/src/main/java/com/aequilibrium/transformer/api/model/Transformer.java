@@ -1,88 +1,109 @@
 package com.aequilibrium.transformer.api.model;
 
+import com.aequilibrium.transformer.common.TransformerEnumType;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
+import com.aequilibrium.transformer.common.TransformerWinnerNames;
+import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Transformer implements Comparable<Transformer> {
+@Validated
+public class Transformer implements Comparable<Transformer>, Serializable {
 
     private Long Id;
 
-    @NotEmpty
+
     @NotNull
     private String name;
 
     @NotNull
-    @Size(min=1,max = 10)
-    @NotEmpty
+    @Size(min = 1, max = 10)
+
     private Integer strength;
     @NotNull
-    @Size(min=1,max = 10)
-    @NotEmpty
+    @Size(min = 1, max = 10)
+
     private Integer intelligence;
     @NotNull
-    @Size(min=1,max = 10)
-    @NotEmpty
+    @Size(min = 1, max = 10)
+
     private Integer speed;
     @NotNull
-    @Size(min=1,max = 10)
-    @NotEmpty
+    @Size(min = 1, max = 10)
+
     private Integer endurance;
     @NotNull
-    @Size(min=1,max = 10)
-    @NotEmpty
+    @Size(min = 1, max = 10)
+
     private Integer rank;
     @NotNull
-    @Size(min=1,max = 10)
-    @NotEmpty
+    @Size(min = 1, max = 10)
+
     private Integer courage;
     @NotNull
-    @Size(min=1,max = 10)
-    @NotEmpty
+    @Size(min = 1, max = 10)
+
     private Integer firepower;
-    @NotEmpty
+
     @NotNull
-    @Size(min=1,max = 10)
+    @Size(min = 1, max = 10)
     private Integer skill;
 
     private Integer ranking;
 
     @NotNull
-    @NotEmpty
     private String type;
 
     protected Transformer() {
     }
 
-    public void setType(String type){
-        if((TransformerEnumType.getByCode(type)!=null)){
+    public void setType(String type) {
+        if ((TransformerEnumType.getByCode(type) != null
+                &&(TransformerEnumType.AUTOBOT.getCode().equals(type)
+                ||TransformerEnumType.DESEPTICAN.getCode().equals(type)))) {
             this.type = type;
-        }else{
+        } else {
             throw new TransformerError(TransformerErrorStatic.ERROR_TRANSFORMER_GENERAL_TYPE_NOT_VALID);
         }
     }
 
-    public Transformer(@NotEmpty @NotNull String name,
-                       @NotNull @Size(min = 1, max = 10)
-                       @NotEmpty Integer strength,
-                       @NotNull @Size(min = 1, max = 10)
-                       @NotEmpty Integer intelligence,
-                       @NotNull @Size(min = 1, max = 10)
-                       @NotEmpty Integer speed,
-                       @NotNull @Size(min = 1, max = 10)
-                       @NotEmpty Integer endurance,
-                       @NotNull @Size(min = 1, max = 10)
-                       @NotEmpty Integer rank,
-                       @NotNull @Size(min = 1, max = 10)
-                       @NotEmpty Integer courage,
-                       @NotNull @Size(min = 1, max = 10)
-                       @NotEmpty Integer firepower,
-                       @NotEmpty @NotNull @Size(min = 1, max = 10) Integer skill
-                       ) {
+    public Transformer(@NotNull String name,
+                       @NotNull @Size(min = 1, max = 10) Integer strength,
+                       @NotNull @Size(min = 1, max = 10) Integer intelligence,
+                       @NotNull @Size(min = 1, max = 10) Integer speed,
+                       @NotNull @Size(min = 1, max = 10) Integer endurance,
+                       @NotNull @Size(min = 1, max = 10) Integer rank,
+                       @NotNull @Size(min = 1, max = 10) Integer courage,
+                       @NotNull @Size(min = 1, max = 10) Integer firepower,
+                       @NotNull @Size(min = 1, max = 10) Integer skill,
+                       @NotNull @Size(min = 1, max = 3)  String type) {
+        this(name,strength,intelligence,speed,endurance,rank,courage,firepower,skill);
+        setType(type);
+    }
+
+    protected Transformer(@Valid
+                       @NotNull String name,
+                          @NotNull @Size(min = 1, max = 10)
+                               Integer strength,
+                          @NotNull @Size(min = 1, max = 10)
+                               Integer intelligence,
+                          @NotNull @Size(min = 1, max = 10)
+                               Integer speed,
+                          @NotNull @Size(min = 1, max = 10)
+                               Integer endurance,
+                          @NotNull @Size(min = 1, max = 10)
+                               Integer rank,
+                          @NotNull @Size(min = 1, max = 10)
+                               Integer courage,
+                          @NotNull @Size(min = 1, max = 10)
+                               Integer firepower,
+                          @NotNull @Size(min = 1, max = 10) Integer skill
+    ) {
 
         this.name = name;
         this.strength = strength;
@@ -96,7 +117,7 @@ public class Transformer implements Comparable<Transformer> {
     }
 
     public void setRanking() {
-        this.ranking = strength+ intelligence+speed+endurance+firepower;
+        this.ranking = strength + intelligence + speed + endurance + firepower;
     }
 
     public Integer getRanking() {
@@ -106,11 +127,11 @@ public class Transformer implements Comparable<Transformer> {
 
     @Override
     public int compareTo(Transformer o) {
-        if(TransformerWinnerNames.OPTIMUS_PRIME.equals(this.getName())||
-                TransformerWinnerNames.PREDAKING.equals(this.getName())){
+        if (TransformerWinnerNames.OPTIMUS_PRIME.equals(this.getName()) ||
+                TransformerWinnerNames.PREDAKING.equals(this.getName())) {
             return -1;
-        }else{
-            return (o.getRank() > this.getRank())?0:-1;
+        } else {
+            return (o.getRank() > this.getRank()) ? 0 : -1;
         }
     }
 
@@ -121,7 +142,6 @@ public class Transformer implements Comparable<Transformer> {
         Transformer that = (Transformer) o;
         return Id.equals(that.Id);
     }
-
 
 
     public String getName() {
@@ -141,7 +161,7 @@ public class Transformer implements Comparable<Transformer> {
         return Id;
     }
 
-    @Size(min=1,max=10)
+    @Size(min = 1, max = 10)
     public void setId(Long id) {
         Id = id;
     }

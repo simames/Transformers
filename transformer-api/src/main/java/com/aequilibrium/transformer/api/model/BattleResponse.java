@@ -1,8 +1,9 @@
 package com.aequilibrium.transformer.api.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class BattleResponse {
+public class BattleResponse  implements Serializable {
 
     private Integer battleNumbers;
     private List<Transformer> winningTeam;

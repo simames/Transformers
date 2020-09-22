@@ -1,6 +1,7 @@
 import com.aequilibrium.transformer.api.model.*;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
+import com.aequilibrium.transformer.common.TransformerWinnerNames;
 import com.aequilibrium.transformer.test.config.TransformerRestTemplateFactory;
 import com.aequilibrium.transformer.test.sp.TransformerSP;
 import org.junit.jupiter.api.Test;
@@ -265,7 +266,7 @@ public class TransformerIntegrationBattleTest {
 
 
 
-    private class CreatedTransformers{
+    private static class CreatedTransformers{
         private List<Long> transformersIds;
         private List<Transformer> transformers;
 

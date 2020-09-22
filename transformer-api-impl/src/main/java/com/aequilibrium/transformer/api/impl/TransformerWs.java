@@ -5,12 +5,12 @@ import com.aequilibrium.transformer.api.model.*;
 import com.aequilibrium.transformer.api.service.TransformerAPI;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.service.logic.TransformerService;
-import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
-@Controller
+@RestController
+@Validated
 @RequestMapping(value = "/transformer")
 public class TransformerWs implements TransformerAPI {
 
@@ -26,12 +26,12 @@ public class TransformerWs implements TransformerAPI {
 
 
     @Override
-    public CreateTransformerResponse createTransformer(@Valid CreateTransformerRequest request) {
+    public CreateTransformerResponse createTransformer(CreateTransformerRequest request) {
         return new CreateTransformerResponse(service.createTransformer(request.getTransformer()));
     }
 
     @Override
-    public UpdateTransformerResponse updateTransformer(@Valid UpdateTransformerRequest request) {
+    public UpdateTransformerResponse updateTransformer(UpdateTransformerRequest request) {
         return new UpdateTransformerResponse(service.createTransformer(request.getTransformer()));
     }
 
@@ -41,12 +41,12 @@ public class TransformerWs implements TransformerAPI {
     }
 
     @Override
-    public DeleteTransformerResponse deleteTransformer(@Valid DeleteTransformerRequest request)  throws TransformerError {
+    public DeleteTransformerResponse deleteTransformer(DeleteTransformerRequest request)  throws TransformerError {
         return new DeleteTransformerResponse(service.deleteTransformer(request.getTransformer()));
     }
 
     @Override
-    public BattleResponse transformersBattle(@Valid BattleRequest request) throws TransformerError {
+    public BattleResponse transformersBattle(BattleRequest request) throws TransformerError {
         return converter.toBattleResponse(service.transformersBattle(request.getTransformerIds()));
     }
 }

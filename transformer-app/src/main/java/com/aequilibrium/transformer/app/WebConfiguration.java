@@ -4,6 +4,7 @@ import com.aequilibrium.transformer.app.filter.TransformerUnhandledErrorFilter;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -24,6 +25,11 @@ public class WebConfiguration {
     @Bean
     TransformerUnhandledErrorFilter unhandledErrorFilter(){
         return new TransformerUnhandledErrorFilter();
-    }
+    }/*
+    @Bean
+    public MethodValidationPostProcessor methodValidationPostProcessor() {
+        return new MethodValidationPostProcessor();
+    }*/
+
 
 }

@@ -1,6 +1,8 @@
 package com.aequilibrium.transformer.api.model;
 
-public class UpdateTransformerRequest {
+import java.io.Serializable;
+
+public class UpdateTransformerRequest implements Serializable {
     private Transformer transformer;
 
     protected UpdateTransformerRequest() {

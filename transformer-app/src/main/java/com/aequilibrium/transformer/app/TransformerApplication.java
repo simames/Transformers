@@ -1,7 +1,6 @@
 package com.aequilibrium.transformer.app;
 
-import com.aequilibrium.transformer.api.model.TransformerEnumType;
-import com.aequilibrium.transformer.persistence.model.TransformerTypeEntity;
+import com.aequilibrium.transformer.common.TransformerEnumType;
 import com.aequilibrium.transformer.service.logic.TransformerService;
 import com.aequilibrium.transformer.service.model.TransformerType;
 import org.springframework.boot.CommandLineRunner;

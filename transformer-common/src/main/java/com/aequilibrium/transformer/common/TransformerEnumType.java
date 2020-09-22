@@ -1,4 +1,4 @@
-package com.aequilibrium.transformer.api.model;
+package com.aequilibrium.transformer.common;
 
 public enum  TransformerEnumType {
     AUTOBOT("AUO","Autobot"),

@@ -1,15 +1,11 @@
 package com.aequilibrium.transformer.service.logic;
 
 import com.aequilibrium.transformer.api.model.Transformer;
-import com.aequilibrium.transformer.api.model.TransformerEnumType;
-import com.aequilibrium.transformer.api.model.TransformerWinnerNames;
+import com.aequilibrium.transformer.common.TransformerEnumType;
+import com.aequilibrium.transformer.common.TransformerWinnerNames;
 import com.aequilibrium.transformer.persistence.service.ITransformerRepository;
 import com.aequilibrium.transformer.service.converter.TransformerConverter;
 import com.aequilibrium.transformer.service.model.BattleResult;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;

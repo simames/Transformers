@@ -2,9 +2,10 @@ package com.aequilibrium.transformer.api.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.List;
 
-public class BattleRequest {
+public class BattleRequest  implements Serializable {
 
     @NotNull
     @Size(min=1)
