@@ -13,8 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = {TransformerRestTemplateFactory.class, TransformerSP.class})
 @ComponentScan("com.aequilibrium.transformer.*")
@@ -42,12 +41,17 @@ public class TransformerIntegrationBattleTest {
         transformersIds.add(soundwave.getId());
         transformersIds.add(bluestreak.getId());
         transformersIds.add(hubcap.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(1, battleResponse.getBattleNumbers());
-        assertEquals(1, battleResponse.getWinningTeam().size());
-        assertEquals(soundwave, battleResponse.getWinner());
-        assertEquals(1, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(hubcap, battleResponse.getSurvivingMembersOfTheLosingTeam().get(0));
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(1, transformersBattleResponse.getBattleNumbers());
+        assertEquals(1, transformersBattleResponse.getWinningTeam().size());
+        assertEquals(soundwave, transformersBattleResponse.getWinner());
+        assertEquals(1, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(hubcap, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().get(0));
+    }
+
+    @Test()
+    public void Test_validation_updateTransformersBattle(){
+        assertThrows(Exception.class,()->transformerAPI.transformersBattle( new TransformersBattleRequest(new ArrayList<>())));
     }
 
     @Test
@@ -58,7 +62,7 @@ public class TransformerIntegrationBattleTest {
                     (new CreateTransformerRequest
                             (new Descepticon("D", 2, 3, 4, 5, 6, 7, 8, 1))).getTransformer();
             transformersIds.add(transformer.getId());
-            BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
+            TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
         } catch (TransformerError e) {
             assertEquals(e.getCode(), TransformerErrorStatic.ERROR_TRANSFORMER_BATTLE_TRANSFORMERS_DO_NOT_EXIST);
         }
@@ -69,7 +73,7 @@ public class TransformerIntegrationBattleTest {
         try {
             List<Long> transformersIds = new ArrayList<>();
             transformersIds.add(123123L);
-            transformerAPI.transformersBattle(new BattleRequest(transformersIds));
+            transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
         } catch (TransformerError e) {
             assertEquals(e.getCode(), TransformerErrorStatic.ERROR_TRANSFORMER_BATTLE_TRANSFORMERS_DO_NOT_EXIST);
         }
@@ -84,10 +88,10 @@ public class TransformerIntegrationBattleTest {
         List<Long> transformersIds = new ArrayList<>();
         transformersIds.add(savedDesceptican.getId());
         transformersIds.add(savedAutobot.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(1, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(savedAutobot, battleResponse.getWinningTeam().get(0));
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(1, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(savedAutobot, transformersBattleResponse.getWinningTeam().get(0));
     }
 
     @Test
@@ -95,10 +99,10 @@ public class TransformerIntegrationBattleTest {
         CreatedTransformers autoBots = createAutoBots();
         CreatedTransformers descepticons = createDescepticons();
         autoBots.getTransformersIds().addAll(descepticons.getTransformersIds());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(autoBots.getTransformersIds()));
-        assertEquals(4, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(4, battleResponse.getWinningTeam().size());
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(autoBots.getTransformersIds()));
+        assertEquals(4, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(4, transformersBattleResponse.getWinningTeam().size());
     }
 
     @Test
@@ -110,10 +114,10 @@ public class TransformerIntegrationBattleTest {
         List<Long> transformersIds = new ArrayList<>();
         transformersIds.add(savedDesceptican.getId());
         transformersIds.add(savedAutobot.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(1, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(savedAutobot, battleResponse.getWinningTeam().get(0));
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(1, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(savedAutobot, transformersBattleResponse.getWinningTeam().get(0));
     }
 
     @Test
@@ -125,10 +129,10 @@ public class TransformerIntegrationBattleTest {
         List<Long> transformersIds = new ArrayList<>();
         transformersIds.add(savedDesceptican.getId());
         transformersIds.add(savedAutobot.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(1, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(savedDesceptican, battleResponse.getWinningTeam().get(0));
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(1, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(savedDesceptican, transformersBattleResponse.getWinningTeam().get(0));
     }
 
     @Test
@@ -140,10 +144,10 @@ public class TransformerIntegrationBattleTest {
         List<Long> transformersIds = new ArrayList<>();
         transformersIds.add(savedDesceptican.getId());
         transformersIds.add(savedAutobot.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(0, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(0, battleResponse.getWinningTeam().size());
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(0, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(0, transformersBattleResponse.getWinningTeam().size());
 
     }
 
@@ -156,11 +160,11 @@ public class TransformerIntegrationBattleTest {
         List<Long> transformersIds = new ArrayList<>();
         transformersIds.add(savedOptimus.getId());
         transformersIds.add(savedAutobot.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(1, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(1, battleResponse.getWinningTeam().size());
-        assertEquals(savedOptimus, battleResponse.getWinner());
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(1, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(1, transformersBattleResponse.getWinningTeam().size());
+        assertEquals(savedOptimus, transformersBattleResponse.getWinner());
     }
 
     @Test
@@ -172,11 +176,11 @@ public class TransformerIntegrationBattleTest {
         List<Long> transformersIds = new ArrayList<>();
         transformersIds.add(savedPredaking.getId());
         transformersIds.add(saveddescepticon.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(1, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(1, battleResponse.getWinningTeam().size());
-        assertEquals(savedPredaking, battleResponse.getWinner());
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(1, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(1, transformersBattleResponse.getWinningTeam().size());
+        assertEquals(savedPredaking, transformersBattleResponse.getWinner());
     }
 
     @Test
@@ -188,11 +192,11 @@ public class TransformerIntegrationBattleTest {
         List<Long> transformersIds = new ArrayList<>();
         transformersIds.add(savedPredaking.getId());
         transformersIds.add(savedOptimusPrime.getId());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(transformersIds));
-        assertEquals(0, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(0, battleResponse.getWinningTeam().size());
-        assertEquals(null, battleResponse.getWinner());
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(transformersIds));
+        assertEquals(0, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(0, transformersBattleResponse.getWinningTeam().size());
+        assertEquals(null, transformersBattleResponse.getWinner());
     }
 
     @Test
@@ -200,7 +204,7 @@ public class TransformerIntegrationBattleTest {
         CreatedTransformers autoBots = createAutoBots();
         CreatedTransformers descepticons = createDescepticons();
         autoBots.getTransformersIds().addAll(descepticons.getTransformersIds());
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(autoBots.getTransformersIds()));
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(autoBots.getTransformersIds()));
         descepticons.getTransformers().addAll(autoBots.getTransformers());
         List<Transformer> transformers = transformerAPI.listTransformers().getTransformers();
         assertTrue(!transformers.containsAll(descepticons.getTransformers()));
@@ -221,7 +225,7 @@ public class TransformerIntegrationBattleTest {
         autoBots.getTransformersIds().add(savedPredaking.getId());
         autoBots.getTransformersIds().add(savedOptimusPrime.getId());
 
-        BattleResponse battleResponse = transformerAPI.transformersBattle(new BattleRequest(autoBots.getTransformersIds()));
+        TransformersBattleResponse transformersBattleResponse = transformerAPI.transformersBattle(new TransformersBattleRequest(autoBots.getTransformersIds()));
         descepticons.getTransformers().addAll(autoBots.getTransformers());
         descepticons.getTransformers().add(predaking);
         descepticons.getTransformers().add(optimusPrime);
@@ -229,9 +233,9 @@ public class TransformerIntegrationBattleTest {
 
         List<Transformer> transformers = transformerAPI.listTransformers().getTransformers();
         assertTrue(!transformers.containsAll(descepticons.getTransformers()));
-        assertEquals(0, battleResponse.getBattleNumbers());
-        assertEquals(0, battleResponse.getSurvivingMembersOfTheLosingTeam().size());
-        assertEquals(0, battleResponse.getWinningTeam().size());
+        assertEquals(0, transformersBattleResponse.getBattleNumbers());
+        assertEquals(0, transformersBattleResponse.getSurvivingMembersOfTheLosingTeam().size());
+        assertEquals(0, transformersBattleResponse.getWinningTeam().size());
     }
 
     private CreatedTransformers createDescepticons() {

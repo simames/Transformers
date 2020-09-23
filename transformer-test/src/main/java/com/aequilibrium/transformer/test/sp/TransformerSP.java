@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.aequilibrium.transformer.common.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 @Service
 public class TransformerSP implements TransformerAPI {
 
@@ -43,8 +40,8 @@ public class TransformerSP implements TransformerAPI {
     }
 
     @Override
-    public BattleResponse transformersBattle(BattleRequest request) throws TransformerError {
-        return transformerRestTemplate.postForObject(transformerUrl + "transformer/transformersBattle", request, BattleResponse.class);
+    public TransformersBattleResponse transformersBattle(TransformersBattleRequest request) throws TransformerError {
+        return transformerRestTemplate.postForObject(transformerUrl + "transformer/transformersBattle", request, TransformersBattleResponse.class);
     }
 
 

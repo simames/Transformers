@@ -3,14 +3,14 @@ package com.aequilibrium.transformer.api.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class BattleResponse  implements Serializable {
+public class TransformersBattleResponse implements Serializable {
 
     private Integer battleNumbers;
     private List<Transformer> winningTeam;
     private List<Transformer> survivingMembersOfTheLosingTeam;
     private Transformer winner;
 
-    protected BattleResponse() {
+    protected TransformersBattleResponse() {
     }
 
     public Integer getBattleNumbers() {

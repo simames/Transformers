@@ -1,7 +1,5 @@
 package com.aequilibrium.transformer.service.model;
 
-import javax.persistence.Column;
-
 public class TransformerType {
     private Long id;
     private String code;
@@ -37,5 +35,14 @@ public class TransformerType {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "TransformerType{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
 package com.aequilibrium.transformer.api.impl.config;
 
-import com.aequilibrium.transformer.api.model.BattleResponse;
+import com.aequilibrium.transformer.api.model.TransformersBattleResponse;
 import com.aequilibrium.transformer.service.model.BattleResult;
 import org.dozer.DozerBeanMapper;
 import org.dozer.loader.api.BeanMappingBuilder;
@@ -21,7 +21,7 @@ public class APIDozerMapper {
         dozerBeanMapper.addMapping(new BeanMappingBuilder() {
             @Override
             protected void configure() {
-                mapping(BattleResponse.class, BattleResult.class);
+                mapping(TransformersBattleResponse.class, BattleResult.class);
             }
         });
     }

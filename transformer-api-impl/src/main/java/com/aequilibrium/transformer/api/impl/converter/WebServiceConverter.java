@@ -1,6 +1,6 @@
 package com.aequilibrium.transformer.api.impl.converter;
 
-import com.aequilibrium.transformer.api.model.BattleResponse;
+import com.aequilibrium.transformer.api.model.TransformersBattleResponse;
 import com.aequilibrium.transformer.service.model.BattleResult;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class WebServiceConverter {
     @Qualifier("ApiDozerMapper")
     private DozerBeanMapper mapper;
 
-    public BattleResponse toBattleResponse(BattleResult battleResult) {
-        return mapper.map(battleResult,BattleResponse.class);
+    public TransformersBattleResponse toBattleResponse(BattleResult battleResult) {
+        return mapper.map(battleResult, TransformersBattleResponse.class);
     }
 }

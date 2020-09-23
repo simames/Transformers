@@ -5,16 +5,16 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
-public class BattleRequest  implements Serializable {
+public class TransformersBattleRequest implements Serializable {
 
     @NotNull
     @Size(min=1)
     private List<Long> transformerIds;
 
-    protected BattleRequest() {
+    protected TransformersBattleRequest() {
     }
 
-    public BattleRequest(List<Long> transformersIds) {
+    public TransformersBattleRequest(List<Long> transformersIds) {
         this.transformerIds = transformersIds;
     }
 

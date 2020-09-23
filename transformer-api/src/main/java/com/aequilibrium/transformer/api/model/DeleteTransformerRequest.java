@@ -1,8 +1,12 @@
 package com.aequilibrium.transformer.api.model;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class DeleteTransformerRequest  implements Serializable {
+    @Valid
+    @NotNull
     private Transformer transformer;
 
     protected DeleteTransformerRequest() {

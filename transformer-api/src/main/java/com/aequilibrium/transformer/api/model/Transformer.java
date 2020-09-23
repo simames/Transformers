@@ -5,6 +5,7 @@ import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import com.aequilibrium.transformer.common.TransformerWinnerNames;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,37 +19,47 @@ public class Transformer implements Comparable<Transformer>, Serializable {
 
 
     @NotNull
+    @Size(min = 1,max=38)
     private String name;
 
     @NotNull
     @Min(1)
+    @Max(10)
     private Integer strength;
     @NotNull
     @Min(1)
+    @Max(10)
     private Integer intelligence;
     @NotNull
     @Min(1)
+    @Max(10)
     private Integer speed;
     @NotNull
     @Min(1)
+    @Max(10)
     private Integer endurance;
     @NotNull
     @Min(1)
+    @Max(10)
     private Integer rank;
     @NotNull
     @Min(1)
+    @Max(10)
     private Integer courage;
     @NotNull
     @Min(1)
+    @Max(10)
     private Integer firepower;
 
     @NotNull
     @Min(1)
+    @Max(10)
     private int skill;
 
     private int ranking;
 
     @NotNull
+    @Size(min = 1, max=3)
     private String type;
 
     protected Transformer() {
@@ -65,35 +76,35 @@ public class Transformer implements Comparable<Transformer>, Serializable {
     }
 
     public Transformer(@NotNull String name,
-                       @NotNull @Min(1) Integer strength,
-                       @NotNull @Min(1) Integer intelligence,
-                       @NotNull @Min(1) Integer speed,
-                       @NotNull @Min(1) Integer endurance,
-                       @NotNull @Min(1) Integer rank,
-                       @NotNull @Min(1) Integer courage,
-                       @NotNull @Min(1) Integer firepower,
-                       @NotNull @Min(1) Integer skill,
+                       @NotNull @Min(1) @Max(10) Integer strength,
+                       @NotNull @Min(1) @Max(10) Integer intelligence,
+                       @NotNull @Min(1) @Max(10) Integer speed,
+                       @NotNull @Min(1) @Max(10) Integer endurance,
+                       @NotNull @Min(1) @Max(10) Integer rank,
+                       @NotNull @Min(1) @Max(10) Integer courage,
+                       @NotNull @Min(1) @Max(10) Integer firepower,
+                       @NotNull @Min(1) @Max(10) Integer skill,
                        @NotNull @Size(min=1, max = 3)  String type) {
         this(name,strength,intelligence,speed,endurance,rank,courage,firepower,skill);
         setType(type);
     }
 
     protected Transformer(@NotNull String name,
-                          @NotNull @Min(1)
+                          @NotNull @Min(1) @Max(10)
                                Integer strength,
-                          @NotNull @Min(1)
+                          @NotNull @Min(1) @Max(10)
                                Integer intelligence,
-                          @NotNull @Min(1)
+                          @NotNull @Min(1) @Max(10)
                                Integer speed,
-                          @NotNull @Min(1)
+                          @NotNull @Min(1) @Max(10)
                                Integer endurance,
-                          @NotNull @Min(1)
+                          @NotNull @Min(1) @Max(10)
                                Integer rank,
-                          @NotNull @Min(1)
+                          @NotNull @Min(1) @Max(10)
                                Integer courage,
-                          @NotNull @Min(1)
+                          @NotNull @Min(1) @Max(10)
                                Integer firepower,
-                          @NotNull @Min(1) Integer skill
+                          @NotNull @Min(1) @Max(10) Integer skill
     ) {
 
         this.name = name;
