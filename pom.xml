@@ -14,7 +14,7 @@
     <groupId>com.aequilibrium</groupId>
     <artifactId>transformers</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <modules>
         <module>transformer-api</module>
         <module>transformer-api-impl</module>
@@ -38,6 +38,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--+++++++++++++++++++++++++++++++h2 database+++++++++++++++++++++++++++++++++++++++++++++-->
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
@@ -66,32 +67,32 @@
             <dependency>
                 <groupId>com.aequilibrium</groupId>
                 <artifactId>transformer-api</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
                 <artifactId>transformer-service</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
                 <artifactId>transformer-api-impl</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
                 <artifactId>transformer-common</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
                 <artifactId>transformer-app</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
             <dependency>
                 <groupId>com.aequilibrium</groupId>
                 <artifactId>transformer-persistence</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0</version>
             </dependency>
             
             <!--+++++++++++++++++++++++++++++++util+++++++++++++++++++++++++++++++++++++++++++++-->
@@ -116,9 +117,6 @@
                 <artifactId>javax.el</artifactId>
                 <version>${javax.el.version}</version>
             </dependency>
-
-
-            <!--&lt;!&ndash;============================================ log =============================================&ndash;&gt;-->
 
         </dependencies>
     </dependencyManagement>

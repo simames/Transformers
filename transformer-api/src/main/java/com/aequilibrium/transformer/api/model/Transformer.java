@@ -5,7 +5,6 @@ import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import com.aequilibrium.transformer.common.TransformerWinnerNames;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

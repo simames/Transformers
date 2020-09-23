@@ -19,7 +19,6 @@ public class TransformerEntity {
     @Column
     private Integer endurance;
     @Column
-
     private Integer rank;
     @Column
     private Integer courage;

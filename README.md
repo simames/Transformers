@@ -39,9 +39,15 @@ CONTENTS OF THIS FILE
   RUNNING APPLICATION
   ------------    
     java -jar transformer-app-1.0.jar
+
+
+  RUNNING INTEGRATION TESTS
+  ------------    
+  To run integration test you need to run the application on the port 8080 and then start the tests
+  This is mainly because in TDD I do not need to constantly rerun the spring boot 
      
-   STARTING WITH TRANSFORMERS CREATIONS
-   ------------
+  STARTING WITH TRANSFORMERS CREATIONS
+  ------------
 Create an Autobot or Descepticon with following abilities (from 1 to 10):
 * Strength
 * Intelligence
