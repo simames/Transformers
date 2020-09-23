@@ -31,6 +31,8 @@ CONTENTS OF THIS FILE
    
    Use maven lifecycle to create and compile the project 
    
+    mvn clean install -DskipTests
+   
    
    CONFIGURATION
    -------------
@@ -38,6 +40,7 @@ CONTENTS OF THIS FILE
     
   RUNNING APPLICATION
   ------------    
+    cd transformer-app/target/
     java -jar transformer-app-1.0.jar
 
 
