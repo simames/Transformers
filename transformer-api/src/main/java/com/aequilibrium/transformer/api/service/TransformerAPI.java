@@ -34,4 +34,6 @@ public interface TransformerAPI {
     @ResponseBody
     @RequestMapping(value = "/transformersBattle", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
     BattleResponse transformersBattle(@Valid @NotNull @RequestBody BattleRequest battleRequest) throws TransformerError;
+
+
 }

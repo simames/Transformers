@@ -4,15 +4,14 @@ import com.aequilibrium.transformer.common.TransformerEnumType;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import com.aequilibrium.transformer.common.TransformerWinnerNames;
-import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Validated
+
 public class Transformer implements Comparable<Transformer>, Serializable {
 
     private Long Id;
@@ -22,39 +21,32 @@ public class Transformer implements Comparable<Transformer>, Serializable {
     private String name;
 
     @NotNull
-    @Size(min = 1, max = 10)
-
+    @Min(1)
     private Integer strength;
     @NotNull
-    @Size(min = 1, max = 10)
-
+    @Min(1)
     private Integer intelligence;
     @NotNull
-    @Size(min = 1, max = 10)
-
+    @Min(1)
     private Integer speed;
     @NotNull
-    @Size(min = 1, max = 10)
-
+    @Min(1)
     private Integer endurance;
     @NotNull
-    @Size(min = 1, max = 10)
-
+    @Min(1)
     private Integer rank;
     @NotNull
-    @Size(min = 1, max = 10)
-
+    @Min(1)
     private Integer courage;
     @NotNull
-    @Size(min = 1, max = 10)
-
+    @Min(1)
     private Integer firepower;
 
     @NotNull
-    @Size(min = 1, max = 10)
-    private Integer skill;
+    @Min(1)
+    private int skill;
 
-    private Integer ranking;
+    private int ranking;
 
     @NotNull
     private String type;
@@ -73,36 +65,35 @@ public class Transformer implements Comparable<Transformer>, Serializable {
     }
 
     public Transformer(@NotNull String name,
-                       @NotNull @Size(min = 1, max = 10) Integer strength,
-                       @NotNull @Size(min = 1, max = 10) Integer intelligence,
-                       @NotNull @Size(min = 1, max = 10) Integer speed,
-                       @NotNull @Size(min = 1, max = 10) Integer endurance,
-                       @NotNull @Size(min = 1, max = 10) Integer rank,
-                       @NotNull @Size(min = 1, max = 10) Integer courage,
-                       @NotNull @Size(min = 1, max = 10) Integer firepower,
-                       @NotNull @Size(min = 1, max = 10) Integer skill,
-                       @NotNull @Size(min = 1, max = 3)  String type) {
+                       @NotNull @Min(1) Integer strength,
+                       @NotNull @Min(1) Integer intelligence,
+                       @NotNull @Min(1) Integer speed,
+                       @NotNull @Min(1) Integer endurance,
+                       @NotNull @Min(1) Integer rank,
+                       @NotNull @Min(1) Integer courage,
+                       @NotNull @Min(1) Integer firepower,
+                       @NotNull @Min(1) Integer skill,
+                       @NotNull @Size(min=1, max = 3)  String type) {
         this(name,strength,intelligence,speed,endurance,rank,courage,firepower,skill);
         setType(type);
     }
 
-    protected Transformer(@Valid
-                       @NotNull String name,
-                          @NotNull @Size(min = 1, max = 10)
+    protected Transformer(@NotNull String name,
+                          @NotNull @Min(1)
                                Integer strength,
-                          @NotNull @Size(min = 1, max = 10)
+                          @NotNull @Min(1)
                                Integer intelligence,
-                          @NotNull @Size(min = 1, max = 10)
+                          @NotNull @Min(1)
                                Integer speed,
-                          @NotNull @Size(min = 1, max = 10)
+                          @NotNull @Min(1)
                                Integer endurance,
-                          @NotNull @Size(min = 1, max = 10)
+                          @NotNull @Min(1)
                                Integer rank,
-                          @NotNull @Size(min = 1, max = 10)
+                          @NotNull @Min(1)
                                Integer courage,
-                          @NotNull @Size(min = 1, max = 10)
+                          @NotNull @Min(1)
                                Integer firepower,
-                          @NotNull @Size(min = 1, max = 10) Integer skill
+                          @NotNull @Min(1) Integer skill
     ) {
 
         this.name = name;
@@ -161,7 +152,7 @@ public class Transformer implements Comparable<Transformer>, Serializable {
         return Id;
     }
 
-    @Size(min = 1, max = 10)
+    
     public void setId(Long id) {
         Id = id;
     }

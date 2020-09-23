@@ -10,7 +10,9 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -132,9 +134,10 @@ public class TransformerIntegrationCrudTest
 
     @Test
     public void Test_validation_transformer(){
-        Transformer validationTransformer = new Descepticon("D",22,22,22,22,22,22,22,22);
-        transformerAPI.createTransformer(new CreateTransformerRequest(validationTransformer));
-//        transformerAPI.createTransformer(null);
+        Transformer validationTransformer = new Transformer("D",0,0,0,0,0,0,0,0,"DES");
+        transformerAPI.createTransformer( new CreateTransformerRequest(validationTransformer));
     }
+
+
 
 }

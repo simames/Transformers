@@ -9,6 +9,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 @RestController
 @Validated
 @RequestMapping(value = "/transformer")
@@ -49,4 +52,5 @@ public class TransformerWs implements TransformerAPI {
     public BattleResponse transformersBattle(BattleRequest request) throws TransformerError {
         return converter.toBattleResponse(service.transformersBattle(request.getTransformerIds()));
     }
+
 }
