@@ -1,10 +1,13 @@
 com\aequilibrium\transformer\api\model\DeleteTransformerRequest.class
 com\aequilibrium\transformer\api\service\TransformerAPI.class
+com\aequilibrium\transformer\api\model\UpdateTransformerRequest.class
+com\aequilibrium\transformer\api\model\TransformersBattleRequest.class
+com\aequilibrium\transformer\api\model\TransformersBattleResponse.class
+com\aequilibrium\transformer\api\model\Autobot.class
+com\aequilibrium\transformer\api\model\Transformer.class
 com\aequilibrium\transformer\api\model\CreateTransformerRequest.class
 com\aequilibrium\transformer\api\model\Descepticon.class
 com\aequilibrium\transformer\api\model\CreateTransformerResponse.class
-com\aequilibrium\transformer\api\model\UpdateTransformerRequest.class
 com\aequilibrium\transformer\api\model\ListTransformerResponse.class
 com\aequilibrium\transformer\api\model\UpdateTransformerResponse.class
 com\aequilibrium\transformer\api\model\DeleteTransformerResponse.class
-com\aequilibrium\transformer\api\model\Transformer.class

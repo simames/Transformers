@@ -1,10 +1,13 @@
-C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\UpdateTransformerRequest.java
 C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\CreateTransformerResponse.java
 C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\DeleteTransformerRequest.java
 C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\UpdateTransformerResponse.java
 C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\service\TransformerAPI.java
-C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\Descepticon.java
 C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\CreateTransformerRequest.java
-C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\ListTransformerResponse.java
 C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\Transformer.java
+C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\UpdateTransformerRequest.java
+C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\Descepticon.java
+C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\ListTransformerResponse.java
+C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\TransformersBattleRequest.java
+C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\Autobot.java
 C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\DeleteTransformerResponse.java
+C:\Users\SimaMes\IdeaProjects\transformer\transformers\transformer-api\src\main\java\com\aequilibrium\transformer\api\model\TransformersBattleResponse.java
