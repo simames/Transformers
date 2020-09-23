@@ -6,8 +6,14 @@ CONTENTS OF THIS FILE
  * Installation
  * Configuration
  * Running application
- * FAQ
- * Maintainers
+ * Running Integration Tests
+ * Starting with transformers creations
+ * Creating a transformer
+ * Updating a transformer
+ * Delete a transformer
+ * List all transformers
+ * Battle
+ * Battle result
  
  INTRODUCTION
  ------------
