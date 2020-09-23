@@ -12,7 +12,13 @@ import java.util.Collections;
 import java.util.List;
 
 import static java.lang.Math.abs;
-
+/**
+ * The TransformerBattle class implements the battle between a list of autobots
+ * and a list of descepticons
+ *
+ * @author  SimaMes
+ * @version 1.0
+ */
 
 public class TransformerBattle {
 
@@ -30,6 +36,12 @@ public class TransformerBattle {
     private Integer numberOfBattles;
     private Transformer transformerWinner;
 
+    /**
+     * This Constructor get a list of transformers for initiation
+     * @param transformers this a list of transformers both desceptican or autobots
+     * @param iTransformerRepository  for deleting the loser transformers from the database
+     * @param converter  to convert transformers to the entity to pass to repository
+     */
     public TransformerBattle(List<Transformer> transformers, ITransformerRepository iTransformerRepository,TransformerConverter converter) {
         this.converter = converter;
         this.iTransformerRepository = iTransformerRepository;
@@ -42,7 +54,10 @@ public class TransformerBattle {
             }
         }
     }
-
+    /**
+     * This is the method that starts the battle between two list of transformers
+     * @return BattleResult includes the winner team, the winner, the member of losing team and the number of battles.
+     */
     public BattleResult battle() {
         Collections.sort(descepticons);
         Collections.sort(autobots);
@@ -54,7 +69,10 @@ public class TransformerBattle {
         }
         return createBattleResult();
     }
-
+    /**
+     * after a battle create the battle result
+     * @return BattleResult includes the winner team, the winner, the member of losing team and the number of battles.
+     */
     private BattleResult createBattleResult() {
         BattleResult battleResult = new BattleResult();
         battleResult.setBattleNumbers(numberOfBattles);
@@ -64,7 +82,10 @@ public class TransformerBattle {
         return battleResult;
     }
 
-
+    /**
+     * after a battle  get the winner team
+     * @return List<Transformer> the list of winners
+     */
     private List<Transformer> getTransformersWinningTeam() {
         if (descepticonWinningtTeam.size() > autobotsWinningTeam.size()) {
             setWinner(descepticonWinningtTeam);
@@ -74,7 +95,10 @@ public class TransformerBattle {
             return autobotsWinningTeam;
         }
     }
-
+    /**
+     * after a battle  with getting winning team set the winner
+     * @param winningTeam get a winning team
+     */
     private void setWinner(List<Transformer> winningTeam) {
         winningTeam.sort(this::compareWinning);
         if (winningTeam.size() > 0) {
@@ -82,8 +106,13 @@ public class TransformerBattle {
         }
     }
 
+    /**
+     * after a battle is used to sort the list of winning team
+     * @param o1  the first transformer
+     * @param o2  the second transformer
+     */
     private int compareWinning(Transformer o1, Transformer o2) {
-        return o1.getRanking() > o2.getRanking() ? 0 : -1;
+        return o1.getRating() > o2.getRating() ? 0 : -1;
     }
 
 
@@ -97,7 +126,12 @@ public class TransformerBattle {
         }
     }
 
-
+    /**
+     * the battle between two transformers
+     * @param descepticon the descepticon transformer
+     * @param autobot the autobot transformer
+     * @return is the battle should be continued or not
+     */
     private boolean twoTransformerBattle(Transformer descepticon, Transformer autobot) {
         boolean isBattle = true;
         if (TransformerWinnerNames.OPTIMUS_PRIME.equals(descepticon.getName()) ||
@@ -125,10 +159,10 @@ public class TransformerBattle {
                 iTransformerRepository.delete(converter.toEntity(autobot));
             }
         } else {
-            if (autobot.getRanking() > descepticon.getRanking()) {
+            if (autobot.getRating() > descepticon.getRating()) {
                 autobotsWinningTeam.add(autobot);
                 iTransformerRepository.delete(converter.toEntity(descepticon));
-            } else if (descepticon.getRanking() > autobot.getRanking()) {
+            } else if (descepticon.getRating() > autobot.getRating()) {
                 descepticonWinningtTeam.add(descepticon);
                 iTransformerRepository.delete(converter.toEntity(autobot));
             } else {
@@ -139,7 +173,14 @@ public class TransformerBattle {
         autobots.remove(autobot);
         return isBattle;
     }
-
+    /**
+     * determine the battle between two high ranking Optimus Prime or Predaking
+     * @param descepticon the descepticon transformer
+     * @param autobot the autobot transformer
+     * @param isBattle get the is battle for changing
+     * @param autobotsWinningTeam the winning team
+     * @return is the battle should be continued or not
+     */
     private boolean isBattleWinnerNames(Transformer descepticon, Transformer autobot, boolean isBattle, List<Transformer> autobotsWinningTeam) {
         if (!TransformerWinnerNames.OPTIMUS_PRIME.equals(descepticon.getName()) &&
                 !TransformerWinnerNames.PREDAKING.equals(descepticon.getName())) {

@@ -14,6 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+/**
+ * The TransformerService holds the logic of the transformers game
+ *
+ * @author  SimaMes
+ * @version 1.0
+ */
 @Service
 public class TransformerService {
 

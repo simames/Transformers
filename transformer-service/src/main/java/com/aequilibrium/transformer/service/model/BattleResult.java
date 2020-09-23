@@ -50,4 +50,14 @@ public class BattleResult {
     public void setWinner(Transformer winner) {
         this.winner = winner;
     }
+
+    @Override
+    public String toString() {
+        return "BattleResult{" +
+                "battleNumbers=" + battleNumbers +
+                ", winningTeam=" + winningTeam +
+                ", survivingMembersOfTheLosingTeam=" + survivingMembersOfTheLosingTeam +
+                ", winner=" + winner +
+                '}';
+    }
 }

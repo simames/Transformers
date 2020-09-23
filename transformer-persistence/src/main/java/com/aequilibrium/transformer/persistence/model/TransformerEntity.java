@@ -11,7 +11,6 @@ public class TransformerEntity {
     @Column
     private String name;
     @Column
-
     private Integer strength;
     @Column
     private Integer intelligence;
@@ -23,7 +22,6 @@ public class TransformerEntity {
 
     private Integer rank;
     @Column
-
     private Integer courage;
     @Column
 
@@ -124,5 +122,22 @@ public class TransformerEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "TransformerEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", strength=" + strength +
+                ", intelligence=" + intelligence +
+                ", speed=" + speed +
+                ", endurance=" + endurance +
+                ", rank=" + rank +
+                ", courage=" + courage +
+                ", firepower=" + firepower +
+                ", skill=" + skill +
+                ", transformerTypeEntity=" + transformerTypeEntity +
+                '}';
     }
 }

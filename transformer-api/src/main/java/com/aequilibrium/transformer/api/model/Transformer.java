@@ -4,6 +4,7 @@ import com.aequilibrium.transformer.common.TransformerEnumType;
 import com.aequilibrium.transformer.common.TransformerError;
 import com.aequilibrium.transformer.common.TransformerErrorStatic;
 import com.aequilibrium.transformer.common.TransformerWinnerNames;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -15,51 +16,63 @@ import java.util.Objects;
 
 public class Transformer implements Comparable<Transformer>, Serializable {
 
+    @ApiModelProperty(notes = "Transformer's id automatically created when transformer is created",name="id")
     private Long Id;
 
 
     @NotNull
     @Size(min = 1,max=38)
+    @ApiModelProperty(notes = "Transformer's name",name="name",required=true)
     private String name;
 
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's strength which is used in overall rating",name="strength",required=true)
     private Integer strength;
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's intelligence which is used in overall rating",name="intelligence",required=true)
     private Integer intelligence;
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's speed which is used in overall rating",name="speed",required=true)
     private Integer speed;
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's endurance which is used in overall rating ",name="endurance",required=true)
     private Integer endurance;
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's rank which is used to sort transformers in the event of battle",name="rank",required=true)
     private Integer rank;
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's courage",name="courage",required=true)
     private Integer courage;
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's firepower which is used in overall rating",name="firepower",required=true)
     private Integer firepower;
 
     @NotNull
     @Min(1)
     @Max(10)
+    @ApiModelProperty(notes = "Transformer's skill",name="skill",required=true)
     private int skill;
 
-    private int ranking;
+    @ApiModelProperty(notes = "Automatically created : Strength+Intelligence+Speed+Endurance+Firepower ",name="rating")
+    private int rating;
 
     @NotNull
     @Size(min = 1, max=3)
+    @ApiModelProperty(notes = "Transformer's type should be 'DES' or 'AUT'",name="type",required=true)
     private String type;
 
     protected Transformer() {
@@ -87,6 +100,7 @@ public class Transformer implements Comparable<Transformer>, Serializable {
                        @NotNull @Size(min=1, max = 3)  String type) {
         this(name,strength,intelligence,speed,endurance,rank,courage,firepower,skill);
         setType(type);
+        setRanking();
     }
 
     protected Transformer(@NotNull String name,
@@ -116,15 +130,16 @@ public class Transformer implements Comparable<Transformer>, Serializable {
         this.courage = courage;
         this.firepower = firepower;
         this.skill = skill;
+        setRanking();
     }
 
     public void setRanking() {
-        this.ranking = strength + intelligence + speed + endurance + firepower;
+        this.rating = strength + intelligence + speed + endurance + firepower;
     }
 
-    public Integer getRanking() {
+    public Integer getRating() {
         setRanking();
-        return this.ranking;
+        return this.rating;
     }
 
     @Override
@@ -253,7 +268,7 @@ public class Transformer implements Comparable<Transformer>, Serializable {
                 ", courage=" + courage +
                 ", firepower=" + firepower +
                 ", skill=" + skill +
-                ", ranking=" + ranking +
+                ", rating=" + rating +
                 ", type='" + type + '\'' +
                 '}';
     }

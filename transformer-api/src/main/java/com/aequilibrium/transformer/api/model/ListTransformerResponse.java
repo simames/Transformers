@@ -1,9 +1,12 @@
 package com.aequilibrium.transformer.api.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
 public class ListTransformerResponse  implements Serializable {
+    @ApiModelProperty(notes = "The transformers which are created",name="transformers")
     private List<Transformer> transformers;
 
     protected ListTransformerResponse() {
@@ -19,5 +22,12 @@ public class ListTransformerResponse  implements Serializable {
 
     public void setTransformers(List<Transformer> transformers) {
         this.transformers = transformers;
+    }
+
+    @Override
+    public String toString() {
+        return "ListTransformerResponse{" +
+                "transformers=" + transformers +
+                '}';
     }
 }

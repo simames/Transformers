@@ -10,7 +10,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = {TransformerRestTemplateFactory.class,TransformerSP.class})
 @ComponentScan("com.aequilibrium.transformer.*")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+
 public class TransformerIntegrationCrudTest
 {
 

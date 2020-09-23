@@ -23,4 +23,12 @@ public class DeleteTransformerRequest  implements Serializable {
     public void setTransformer(Transformer transformer) {
         this.transformer = transformer;
     }
+
+
+    @Override
+    public String toString() {
+        return "DeleteTransformerRequest{" +
+                "transformer=" + transformer +
+                '}';
+    }
 }

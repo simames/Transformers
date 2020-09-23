@@ -24,4 +24,11 @@ public class UpdateTransformerRequest implements Serializable {
     public void setTransformer(Transformer transformer) {
         this.transformer = transformer;
     }
+
+    @Override
+    public String toString() {
+        return "UpdateTransformerRequest{" +
+                "transformer=" + transformer +
+                '}';
+    }
 }
